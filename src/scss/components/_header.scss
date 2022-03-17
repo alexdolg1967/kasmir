@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 55;
+    z-index: 8;
     width: 100%;
     height: var(--header-height);
     pointer-events: none;
@@ -20,17 +20,47 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @include extra {
+            width: 45%;
+        }
+
+        @include big {
+            width: 100%;
+        }
+
+        @include mobile {
+            justify-content: flex-end;
+        }
     }
 
     &-nav {
         pointer-events: all;
+        transition: .4s;
+
         &__list {
             display: flex;
+
+            @include mobile {
+                flex-direction: column;
+                height: 100%;
+                justify-content: space-around;
+                padding: 2rem;
+                align-items: center;
+            }
         }
 
         &__item {
             &:not(:last-child) {
                 margin-right: 58px;
+
+                @include extra {
+                    margin-right: 35px;
+                }
+
+                @include mobile {
+                    margin: 0;
+                }
             }
         }
 
@@ -44,8 +74,35 @@
             &:hover {
                 color: var(--accent-color);
             }
+
+            @include mobile {
+                font-size: 24px;
+                line-height: 30px;
+            }
         }
+
+        &.menu--active {
+            right: 0;
+        }
+
+        @include big {
+            margin-left: auto;
+            margin-right: 8%;
+        }
+
+        @include mobile {
+            position: fixed;
+            right: -72%;
+            top: 0;
+            margin: 0;
+            width: 70%;
+            height: 70%;
+            background-color: white;
+            z-index: 2;
+        }
+
     }
+
     & .basket-button {
         position: relative;
         pointer-events: all;
@@ -65,4 +122,18 @@
             color: var(--white-color);
         }
     }
+
+    .burger {
+        display: none;
+
+        @include mobile {
+            display: block;
+            margin-left: 2rem;
+            pointer-events: all;
+            z-index: 8;
+            @include burger;
+        }
+    }
+
+
 }

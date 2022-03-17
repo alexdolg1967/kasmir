@@ -4,37 +4,26 @@
 }
 
 .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
     align-items: center;
 }
+
 .main-slide {
     width: 100%;
     height: 100%;
-    padding: 0 2% 12.3% 8%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(290px, 1fr) minmax(290px, 1fr);
+    column-gap: 8%;
+    justify-content: center;
     align-items: center;
 
     &__img {
         position: relative;
-        flex: 0 0 517px;
+        width: 517px;
         height: 800px;
         overflow: hidden;
+        margin: 0 auto auto;
 
         & .img-caption {
             position: absolute;
@@ -53,12 +42,47 @@
             background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
             transition: 0.5s;
+
+            @include tablet {
+                font-size: 22px;
+                line-height: 30px;
+            }
         }
 
         &:hover .img-caption {
             bottom: 0;
         }
+
+        @include extra {
+            width: 427px;
+            height: 700px;
+        }
+
+        @include big {
+            width: 370px;
+            height: 600px;
+            margin: auto;
+        }
+
+        @include tablet {
+            width: 323px;
+            height: 500px;
+        }
+
+        @include small-tablet {
+            width: 284px;
+            height: 440px;
+        }
+
+        @include mobile {
+            order: 2;
+            width: 260px;
+            height: 400px;
+            margin-top: 0;
+            margin-bottom: auto;
+        }
     }
+
 
     &__content {
         max-width: 650px;
@@ -69,18 +93,75 @@
             font-weight: 600;
             font-size: 64px;
             line-height: 77px;
+
+            @include extra {
+                font-size: 50px;
+                line-height: 56px;
+            }
+
+            @include small-tablet {
+                font-size: 35px;
+                line-height: 46px;
+            }
+
+            @include mobile {
+                font-size: 30px;
+                line-height: 38px;
+                text-align: center;
+            }
         }
 
         & p {
             font-size: 18px;
             line-height: 32px;
             color: rgba(5, 2, 21, 0.75);
+
+            @include small-tablet {
+                font-size: 16px;
+                line-height: 25px;
+            }
+
+            @include mobile {
+                font-size: 14px;
+                line-height: 20px;
+            }
+
         }
 
         & .btn {
             margin-top: 50px;
+
+            @include extra {
+                margin-top: 30px;
+            }
+
+            @include mobile {
+                margin-top: 15px;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        @include mobile {
+            max-width: 80%;
+            margin: 15px auto;
         }
     }
+
+    @include big {
+        column-gap: 6%;
+    }
+
+    @include tablet {
+        column-gap: 5%;
+    }
+
+    @include mobile {
+        margin-top: 60px;
+        height: calc(100% - 60px);
+        grid-template-columns: minmax(290px, 1fr)
+    }
+
 }
 
 .slider-pagination-current {
@@ -98,4 +179,22 @@
     right: 15px;
     bottom: 50px;
     z-index: 4;
+
+    @include big {
+        padding-bottom: 20px;
+        font-size: 150px;
+        line-height: 130px;
+        bottom: 10px;
+    }
+
+    @include tablet {
+        padding-bottom: 10px;
+        font-size: 100px;
+        line-height: 80px;
+        border-radius: 30px;
+    }
+
+    @include mobile {
+        bottom: var(--header-height);
+    }
 }
