@@ -1,0 +1,68 @@
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 55;
+    width: 100%;
+    height: var(--header-height);
+    pointer-events: none;
+
+    &__container {
+        height: 100%;
+        pointer-events: none;
+    }
+
+    &-wrapper {
+        width: 50%;
+        height: 100%;
+        margin-left: auto;
+        background: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-nav {
+        pointer-events: all;
+        &__list {
+            display: flex;
+        }
+
+        &__item {
+            &:not(:last-child) {
+                margin-right: 58px;
+            }
+        }
+
+        &__link {
+            font-size: 18px;
+            line-height: 22px;
+            color: var(--text-color);
+            transition: 0.3s;
+
+            &.active,
+            &:hover {
+                color: var(--accent-color);
+            }
+        }
+    }
+    & .basket-button {
+        position: relative;
+        pointer-events: all;
+
+        & span {
+            position: absolute;
+            right: -7px;
+            top: -6px;
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            font-size: 6px;
+            font-weight: 700;
+            line-height: 10px;
+            background-color: var(--text-color);
+            color: var(--white-color);
+        }
+    }
+}

@@ -1,0 +1,39 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 22;
+    pointer-events: none;
+
+    &-container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+    }
+
+    &-social {
+        height: 100%;
+        margin-left: 8%;
+        flex: 0 0 517px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: var(--white-color);
+        pointer-events: none;
+
+        &__link {
+            font-size: 18px;
+            line-height: 22px;
+            color: var(--text-color);
+            transition: 0.3s;
+            pointer-events: all;
+
+            &:hover {
+                color: var(--accent-color);
+            }
+        }
+    }
+}
